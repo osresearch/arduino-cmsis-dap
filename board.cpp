@@ -94,7 +94,7 @@
 #define BOARD_ID        "1062"
 #define BOARD_SECRET    "xxxxxxxx"
 
-#elif defined(ARDUINO_AVR_MICRO) || defined(TEENSYDUINO)
+#elif defined(ARDUINO_AVR_MICRO) || defined(TEENSYDUINO) || defined(ARDUINO_AVR_PROMICRO)
 #define BOARD_ID        {1, 1, 1, 1}
 #define BOARD_SECRET    {1, 1, 1, 1, 1, 1, 1, 1, 1}
 

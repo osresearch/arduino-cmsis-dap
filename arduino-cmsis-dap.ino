@@ -20,6 +20,17 @@
  *
  * INSTALLATION INSTRUCTIONS
  *
+ * DEPENDENCIES
+ *
+ * To build this code, you'll need the Arduino toolchain, plus the
+ * appropriate package for your board.  You'll also need to install
+ * NicoHood's HID library: https://github.com/NicoHood/HID
+ *
+ * If you get an error about HID-Project.h, double check that you've
+ * installed the HID library properly.
+ *
+ * BUILD SETUP
+ *
  * For a device to be correctly detected as a CMSIS-DAP adapter, it must
  * contain the string "CMSIS-DAP" in its USB product name.  Unfortunately
  * we can't override this from within the sketch -- you'll have to edit
@@ -46,6 +57,8 @@
  *
  *   You also need to select "Raw HID" under Tools | USB Type, after
  *   selecting the Teensy 3.2 board.
+ *
+ * WIRING
  *
  * Connect up your SWD or JTAG target to the appropriate pins for your board:
  *

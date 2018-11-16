@@ -25,11 +25,17 @@
  * we can't override this from within the sketch -- you'll have to edit
  * files in your Arduino installation to change it.
  *
- * Pro Micro:
+ * Arduino Micro:
  *   Inside your Arduino installation, edit hardware/arduino/avr/boards.txt
  *   and add CMSIS-DAP to micro.build.usb_product:
  *
  *   micro.build.usb_product="Arduino Micro CMSIS-DAP"
+ *
+ * Sparkfun Pro Micro:
+ *   Inside your Arduino installation, edit ~/.arduino15/packages/SparkFun/hardware/avr/1.1.12/boards.txt
+ *   and add CMSIS-DAP to micro.build.usb_product:
+ *
+ *   promicro.build.usb_product="SparkFun Pro Micro CMSIS-DAP"
  *
  * Teensy 3.2:
  *   Inside your Arduino installation, edit hardware/teensy/avr/cores/teensy3/usb_desc.h

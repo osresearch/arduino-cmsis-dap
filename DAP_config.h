@@ -66,13 +66,21 @@ Provides definitions about:
 /// requrired.
 #define IO_PORT_WRITE_CYCLES    2               ///< I/O Cycles: 2=default, 1=Cortex-M0+ fast I/0
 
+#if !defined(DAP_SERIAL_LOG)
+#define DAP_SERIAL_LOG          1
+#endif
+
 /// Indicate that Serial Wire Debug (SWD) communication mode is available at the Debug Access Port.
 /// This information is returned by the command \ref DAP_Info as part of <b>Capabilities</b>.
+#if !defined(DAP_SWD)
 #define DAP_SWD                 1               ///< SWD Mode:  1 = available, 0 = not available
+#endif
 
 /// Indicate that JTAG communication mode is available at the Debug Port.
 /// This information is returned by the command \ref DAP_Info as part of <b>Capabilities</b>.
+#if !defined(DAP_JTAG)
 #define DAP_JTAG                1               ///< JTAG Mode: 1 = available, 0 = not available.
+#endif
 
 /// Configure maximum number of JTAG devices on the scan chain connected to the Debug Access Port.
 /// This setting impacts the RAM requirements of the Debug Unit. Valid range is 1 .. 255.

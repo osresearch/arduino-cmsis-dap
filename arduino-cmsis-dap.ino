@@ -112,15 +112,19 @@ void loop() {
     RawHID.recv(rawhidRequest, 0);
 #endif
   if (bytesAvailable > 0) {
+#if DAP_SERIAL_LOG
     Serial.print("cmd ");
     Serial.print(rawhidRequest[0], HEX);
     Serial.print(" ");
     Serial.print(rawhidRequest[1], HEX);
     Serial.print(" ");
+#endif /* DAP_SERIAL_LOG */
     auto sz = DAP_ProcessCommand(rawhidRequest, rawhidResponse);
+#if DAP_SERIAL_LOG
     Serial.print("rsp ");
     Serial.print(sz);
     Serial.println(" B");
+#endif /* DAP_SERIAL_LOG */
 #ifdef HIDPROJECT_RAWHID
     RawHID.enable(); // signal that we're ready to receive another buffer
 #endif

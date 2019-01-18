@@ -131,6 +131,14 @@ Provides definitions about:
 #define PIN_nRESET 23
 #define PIN_LED_CONNECTED LED_BUILTIN
 #define PIN_LED_RUNNING LED_BUILTIN
+#elif AT16U2_DUE
+#define PIN_SWDIO   2//PB2 // MOSI pin
+#define PIN_SWCLK   1//PB1 // SCK
+#define PIN_TDO     6//PB6
+#define PIN_TDI     7//PB7
+#define PIN_nRESET  8//PC7
+#define PIN_LED_CONNECTED LED_BUILTIN_TX
+#define PIN_LED_RUNNING LED_BUILTIN_RX
 #else
 #define PIN_SWDIO 2
 #define PIN_SWCLK 3

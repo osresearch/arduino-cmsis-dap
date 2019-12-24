@@ -87,12 +87,20 @@
 #include "DAP_config.h"
 #include "DAP.h"
 
+#ifndef LED_BUILTIN
+#define LED_BUILTIN 13
+#endif
+static uint8_t pulse_stretcher;
+
+
 uint8_t rawhidRequest[DAP_PACKET_SIZE];
 uint8_t rawhidResponse[DAP_PACKET_SIZE];
 
 #define DAP_SERIAL_LOG 0
 
 void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+
   Serial.begin(115200);
   Serial1.begin(115200);
 
@@ -141,18 +149,32 @@ void loop() {
     }
   }
 
-  // act as a serial adapter as well
-  // should check if the cdc device endpoint is connected on the usb
+  // act as a serial adapter and flash the LED as traffic is received
+  // each time through the loop turn off the LED
+  if (pulse_stretcher == 0)
+  	digitalWriteFast(LED_BUILTIN, 0);
+  else
+	pulse_stretcher--;
+
   int c;
   c = Serial.read();
   if (c != -1)
   {
+    // send the USB serial character to the hardware serial port
+    digitalWriteFast(LED_BUILTIN, 1);
+    pulse_stretcher = 32;
+    //Serial.write((char) c); // echo for debugging
     Serial1.write((char) c);
-    Serial.write((char) c);
   }
 
   c = Serial1.read();
   if (c != -1)
-    Serial.write((char) c);
+  {
+    // send the hardware serial character to the USB port, if it is connected
+    digitalWriteFast(LED_BUILTIN, 1);
+    pulse_stretcher = 32;
+    if (Serial.dtr())
+      Serial.write((char) c);
+  }
 }
 

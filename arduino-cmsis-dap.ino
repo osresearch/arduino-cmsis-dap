@@ -90,9 +90,13 @@
 uint8_t rawhidRequest[DAP_PACKET_SIZE];
 uint8_t rawhidResponse[DAP_PACKET_SIZE];
 
+#define DAP_SERIAL_LOG 0
 
 void setup() {
   Serial.begin(115200);
+  Serial1.begin(115200);
+
+  Serial.println("teensy swd probe");
 
   DAP_Setup();
 
@@ -136,5 +140,19 @@ void loop() {
 #endif
     }
   }
+
+  // act as a serial adapter as well
+  // should check if the cdc device endpoint is connected on the usb
+  int c;
+  c = Serial.read();
+  if (c != -1)
+  {
+    Serial1.write((char) c);
+    Serial.write((char) c);
+  }
+
+  c = Serial1.read();
+  if (c != -1)
+    Serial.write((char) c);
 }
 

@@ -27,13 +27,13 @@ Pin | Function
 ----|--------
 0   | Serial TX (from Teensy into device)
 1   | Serial RX (from device into Teensy)
-19  | `SWDIO`
-20  | `SWCLK`
+2   | `SWDIO`
+3   | `SWCLK`
 
-You will also need to connect a ground pin.
+You will also need to connect a ground pin and 3.3v pin.
 
-The serial port is 115200 with no flow control and 3.3V signalling. These pins are 5V tolerant,
-but do not connect to RS232 levels.
+The serial port is 115200 with no flow control and 3.3V signalling.
+These pins are 5V tolerant, but do not connect to RS232 levels.
 
 # Debugging
 

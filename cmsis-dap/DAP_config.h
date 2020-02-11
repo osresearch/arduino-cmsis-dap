@@ -124,11 +124,11 @@ Provides definitions about:
 // Debug Port I/O Pins
 
 #ifdef TEENSYDUINO
-#define PIN_SWDIO 19
-#define PIN_SWCLK 20
-#define PIN_TDO 21
-#define PIN_TDI 22
-#define PIN_nRESET 23
+#define PIN_SWDIO 2
+#define PIN_SWCLK 3
+#define PIN_TDO 4
+#define PIN_TDI 5
+#define PIN_nRESET 6
 #define PIN_LED_CONNECTED LED_BUILTIN
 #define PIN_LED_RUNNING LED_BUILTIN
 #elif AT16U2_DUE

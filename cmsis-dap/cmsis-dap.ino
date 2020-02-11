@@ -70,11 +70,13 @@
  *   6 /RESET
  *
  * Teensy 3.2 pins:
- *  19 SWDIO
- *  20 SWCLK
- *  21 TDO
- *  22 TDI
- *  23 /RESET
+ *   0 Serial TX (from Teensy into device)
+ *   1 Serial RX (from device into Teensy)
+ *   2 SWDIO
+ *   3 SWCLK
+ *   4 TDO
+ *   5
+ *   6 /RESET
  *
  * Then give it a try!  With OpenOCD, the command line will look something like this:
  *
